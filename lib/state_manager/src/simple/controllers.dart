@@ -7,7 +7,7 @@ import 'list_notifier.dart';
 
 // ignore: prefer_mixin
 abstract class JuneState extends ListNotifier with JuneLifeCycleMixin {
-  /// Rebuilds `JuneBuilder` each time you call `update()`;
+  /// Rebuilds `JuneBuilder` each time you call `setState()`;
   /// Can take a List of [ids], that will only update the matching
   /// `JuneBuilder( id: )`,
   /// [ids] can be reused among `JuneBuilders` like group tags.

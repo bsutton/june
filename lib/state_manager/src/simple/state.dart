@@ -53,7 +53,7 @@ class JuneBuilder<T extends JuneState> extends StatelessWidget {
 
   const JuneBuilder(
     this._creator, {
-    Key? key,
+    super.key,
     this.init,
     this.global = true,
     required this.builder,
@@ -66,7 +66,7 @@ class JuneBuilder<T extends JuneState> extends StatelessWidget {
     this.id,
     this.didChangeDependencies,
     this.didUpdateWidget,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class JuneBuilder<T extends JuneState> extends StatelessWidget {
 
 abstract class Bind<T> extends StatelessWidget {
   const Bind({
-    Key? key,
+    super.key,
     required this.child,
     this.init,
     this.global = true,
@@ -109,7 +109,7 @@ abstract class Bind<T> extends StatelessWidget {
     this.id,
     this.didChangeDependencies,
     this.didUpdateWidget,
-  }) : super(key: key);
+  });
 
   final InitBuilder<T>? init;
 
@@ -304,7 +304,7 @@ class _FactoryBind<T> extends Bind<T> {
   final Widget? child;
 
   const _FactoryBind({
-    Key? key,
+    super.key,
     this.child,
     this.init,
     this.create,
@@ -318,7 +318,7 @@ class _FactoryBind<T> extends Bind<T> {
     this.id,
     this.didChangeDependencies,
     this.didUpdateWidget,
-  }) : super(key: key, child: child);
+  }) : super(child: child);
 
   @override
   Bind<T> _copyWithChild(Widget child) {
@@ -363,11 +363,10 @@ class Binds extends StatelessWidget {
   final Widget child;
 
   Binds({
-    Key? key,
+    super.key,
     required this.binds,
     required this.child,
-  })  : assert(binds.isNotEmpty),
-        super(key: key);
+  }) : assert(binds.isNotEmpty);
 
   @override
   Widget build(BuildContext context) =>
@@ -380,8 +379,8 @@ class Binder<T> extends InheritedWidget {
   ///
   /// The [child] argument is required
   const Binder({
-    Key? key,
-    required Widget child,
+    super.key,
+    required super.child,
     this.init,
     this.global = true,
     this.autoRemove = true,
@@ -395,7 +394,7 @@ class Binder<T> extends InheritedWidget {
     this.didChangeDependencies,
     this.didUpdateWidget,
     this.create,
-  }) : super(key: key, child: child);
+  });
 
   final InitBuilder<T>? init;
   final InstanceCreateBuilderCallback? create;
@@ -427,7 +426,7 @@ class Binder<T> extends InheritedWidget {
 /// The BindElement is responsible for injecting dependencies into the widget
 /// tree so that they can be observed
 class BindElement<T> extends InheritedElement {
-  BindElement(Binder<T> widget) : super(widget) {
+  BindElement(Binder<T> super.widget) {
     initState();
   }
 

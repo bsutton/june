@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 abstract class JuneWidgetCache extends Widget {
-  const JuneWidgetCache({Key? key}) : super(key: key);
+  const JuneWidgetCache({super.key});
 
   @override
   JuneWidgetCacheElement createElement() => JuneWidgetCacheElement(this);

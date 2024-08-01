@@ -21,13 +21,9 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.2.6 <4.0.0'
 
-dependency_overrides:
-  june:
-    path: ../
-  http: ^1.2.1
-
-
 dependencies:
+  june:
+  http: ^1.2.1
   flutter:
     sdk: flutter
 
